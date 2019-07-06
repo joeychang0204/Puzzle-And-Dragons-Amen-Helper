@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amen</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Amen">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amen">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- Material Design icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <!-- Material Design Lite page styles:
+    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+    Format: material.color1-color2.min.css, some examples:
+    material.red-teal.min.css
+    material.blue-orange.min.css
+    material.purple-indigo.min.css
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+          
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row-right">
+            <a href="#" class="mdl-layout__tab" style="float: right;" id='en'>English</a>
+            <a href="#" class="mdl-layout__tab" style="float: right;" id='jp'>日本語</a>
+            <a href="#" class="mdl-layout__tab" style="float: right;" id='ch'>中文</a>
+            
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3 id='title'>龍族拼圖 - 阿門小幫手</h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#overview" class="mdl-layout__tab is-active" id='main'>主頁面</a>
+          <a href="#features" class="mdl-layout__tab" id='references'>參考資料 & 聯絡</a>
+        </div>
+        
+
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--grey mdl-color-text--white" id="board">
+            </div>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+                  
+                  
+                  
+                  
+                <div class="counter">
+                    <p class="counter-count" id="counter">0</p>
+                    <p class="view-p" id="view-p">瀏覽人數</p>
+                </div>
+</br></br></br></br></br></br></br>
+                <form onsubmit="solve()">
+                    <img src="images/fire.png" width="35">
+                    <input type="number" name="fire_count" id="fire_count" min="0" max="30">
+                    <img src="images/water.png" width="35">
+                    <input type="number" name="water_count" id="water_count" min="0" max="30" >
+                    <img src="images/wood.png" width="35">
+                    <input type="number" name="wood_count" id="wood_count" min="0" max="30">
+                    <img src="images/light.png" width="35">
+                    <input type="number" name="light_count" id="light_count" min="0" max="30">
+                    <img src="images/dark.png" width="35">
+                    <input type="number" name="dark_count" id="dark_count" min="0" max="30">
+                    <img src="images/health.png" width="35">
+                    <input type="number" name="health_count" id="health_count" min="0" max="30" value=0></br></br>
+                    <div class="row">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary" value="開始計算" id="calculate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" class="btn btn-primary" onclick="drawNext();" value="顯示其他解法" style="float: center;" id="next">    
+                    </div>
+                  </br></br></br></br>
+                </form>
+                </br>
+              </div>
+            </div>
+
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="features">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h5 id="twoColor-h">雙色</h5>
+              <img src="images/2-color.png" height="400">
+
+              
+              <h5 id="threeColor-h">三色</h5>
+              <a href="https://www.youtube.com/watch?v=EN_84_OdjqI" id='threeColor-r'>參考連結</a> 
+              <p id="threeColor-p">
+                先轉下兩排4 combo， 轉一橫排蓋住，再做剩下2 combo。
+              </p>
+
+              <h5 id="multiColor-h">多色</h5>
+              <a href="https://www.youtube.com/watch?v=Yv5w9u-qlhI" id='multiColor-r'>參考連結</a> 
+              <p id="multiColor-p">
+                先算出最大combo數，根據結果對應不同轉法。
+              </p>
+              <ul>
+                <li>7 Combo: 5,5,5,3,3,3,3 / 5,5,4,4,3,3,3</li>
+                <li>8 Combo: 6,4,4,4,3,3,3 / 6,4,5,3,3,3,3</li>
+                <li>9 Combo: 6,6,3,3,3,3,3</li>
+                <li>10 Combo: 6,6,6,3,3,3,3</li>
+              </ul>
+              <h5 id="website-h">其他參考資料</h5>
+              <a href="https://github.com/google/web-starter-kit" id='website-r1'>網頁模板</a> </br>
+              <a href="https://github.com/AlexChittock/JQuery-Session-Plugin" id='website-r2'>jQuery Session</a></br>
+              <a href="https://bootsnipp.com/snippets/5K6WW" id='website-r3'>人氣計數器</a>
+              <h5 id="contact-h">聯絡</h5>
+              <p id="contact-p1">
+                email: joeychang0204@gmail.com </br>
+                github: 
+              </p>
+            </div>
+          </section>
+        </div>
+        
+      </main>
+    </div>
+
+    <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <!-- endbuild -->
+    <!-- Built with love using Web Starter Kit -->
+    
+    
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="jquery.session.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script> resetBoard(); setCount(); solve();</script>
+    
+   
+
+  </body>
+</html>
