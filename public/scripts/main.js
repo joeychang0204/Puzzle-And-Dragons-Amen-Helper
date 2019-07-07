@@ -231,7 +231,7 @@ function solveMultiple(count){
         pickColor(count, [5,5,5,3,3,3,3], [[0,1], [1,2], [2,3], [2,4], [2,5],[2,6], [3,4], [4,5], [5,6]]);
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6], c7 = permutes[i][7], c8=permutes[i][8], c9=permutes[i][9];
-            if(i>0 && !skipPermute(i, [0]))
+            if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c0,c1,c2,c3,c3,c3,c0,c1,c2,c4,c4,c4,c0,c1,c2,c5,c5,c5,c0,c1,c2,c6,c6,c6,c0,c1,c2,c7,c8,c9]);
         }
         
@@ -241,19 +241,20 @@ function solveMultiple(count){
         pickColor(count, [5,5,4,4,3,3,3], [[0,1], [1,2],[1,3], [2,3], [3,4], [3,5],[3,6], [4,5], [5,6]]);
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6], c7 = permutes[i][7], c8=permutes[i][8], c9=permutes[i][9];
-            if(i>0 && !skipPermute(i, [0,1]))
+            if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c0,c1,c4,c5,c6,c7,c0,c1,c4,c5,c6,c8,c0,c1,c4,c5,c6,c9,c0,c1,c3,c3,c3,c3,c0,c1,c2,c2,c2,c2]);
         }
         
     }
     else if(maxCombo == 8){
+        console.log('8 combo');
         // 8 combo : 6,4,4,4,3,3,3
         permutes = new Array();
         pickColor(count, [6,4,4,4,3,3,3], [[0,1], [0,2], [0,3], [1,2], [2,3], [3,4], [3,5], [3,6], [4,5], [5,6], [0,6]]);
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6], c7 = permutes[i][7], c8=permutes[i][8], c9=permutes[i][9];
             // ignore boring permutations
-            if(i>0 && !skipPermute(i, [0]))
+            if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c1,c2,c3,c4,c4,c4,c1,c2,c3,c5,c5,c5,c1,c2,c3,c6,c6,c6,c1,c2,c3,c7,c8,c9,c0,c0,c0,c0,c0,c0]);
         }
         
@@ -263,7 +264,7 @@ function solveMultiple(count){
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6], c7 = permutes[i][7], c8=permutes[i][8], c9=permutes[i][9];
             // ignore boring permutations
-            if(i>0 && !skipPermute(i, [0,1]))
+            if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c2,c3,c4,c5,c6,c7,c2,c3,c4,c5,c6,c8,c2,c3,c4,c5,c6,c9,c2,c1,c1,c1,c1,c1,c0,c0,c0,c0,c0,c0]);
         }
     }
@@ -274,7 +275,7 @@ function solveMultiple(count){
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6], c7 = permutes[i][7], c8=permutes[i][8], c9=permutes[i][9];
             // ignore boring permutations
-            if(i>0 && !skipPermute(i, [0,1]))
+            if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c2,c3,c4,c5,c6,c7,c2,c3,c4,c5,c6,c8,c2,c3,c4,c5,c6,c9,c1,c1,c1,c1,c1,c1,c0,c0,c0,c0,c0,c0]);
         }
     }
@@ -285,7 +286,7 @@ function solveMultiple(count){
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6];
             // ignore boring permutations
-            if(i>0 && !skipPermute(i, [0,1,2]))
+            if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c2,c2,c3,c4,c5,c6,c2,c2,c3,c4,c5,c6,c2,c2,c3,c4,c5,c6,c1,c1,c1,c1,c1,c1,c0,c0,c0,c0,c0,c0]);
         }
     }
