@@ -183,18 +183,30 @@ function solve3(count){
             else
                 curAns[row2++] = c5;
         }
+        var row1Remain=0, row2Remain=0;
         for(var j=0; j<isRemain.length; j++){
-            if(row1 <= 5)
+            if(row1 <= 5){
                 curAns[row1++] = isRemain[j];
-            else
+                row1Remain ++;
+            }
+            else{
                 curAns[row2++] = isRemain[j];
+                row2Remain ++;
+            }
         }
         // check first row combo and third row combo not connected
         var valid= true;
+        // if row1 remain or row2 remain forms a combo, it's invalid
+        if(row1Remain >= 3 && curAns[5] == curAns[4] && curAns[4] == curAns[3])
+            valid = false;
+        if(row2Remain >= 3 && curAns[11] == curAns[10] && curAns[10] == curAns[9] && curAns[11]!=curAns[17])
+            valid = false;  
+
         for(var j=0; j<3; j++){
             if(curAns[0] == curAns[3+j] && curAns[0] == curAns[9+j] && curAns[0] == curAns[15+j])
                 valid = false;
         }
+        
         if(valid)
             answers.push(curAns);
     }
