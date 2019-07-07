@@ -419,6 +419,7 @@ async function getPrevCount(){
         var parsedResponse = JSON.parse(response);
         // access your data newly received data here and update your DOM with appendChild(), findElementById(), etc...
         var messageToDisplay = parsedResponse['views'];
+        console.log('recieved views' + ' , ' + parsedResponse['views'].toString());
         document.getElementById('counter').innerHTML = parsedResponse['views'].toString();
         setCounter();
         // append child (with text value of messageToDisplay for instance) here or do some more stuff
@@ -429,6 +430,7 @@ function updateCount(){
     // send http request to get views
     var req = new XMLHttpRequest();
     var url = '/updateViews';
+    console.log('updating count');
     
     req.open('GET',url,true); // set this to POST if you would like
     req.send();
