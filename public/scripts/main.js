@@ -331,7 +331,7 @@ function getUrlParam(parameter, defaultvalue){
     if(window.location.href.indexOf(parameter) > -1){
         urlparameter = getUrlVars()[parameter];
     }
-    return urlparameter;
+    return urlparameter == '' ? '0' : urlparameter;
 }
 
 function getUrlVars() {
