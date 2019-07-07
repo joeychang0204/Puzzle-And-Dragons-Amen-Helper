@@ -86,8 +86,14 @@ function solve() {
         total += count[i];
         if (count[i] == 0) colors -= 1;
     }
-    if(total > 0 && total != 30)
-        alert('非法盤面，請重新輸入')
+    if(total > 0 && total != 30){
+        if($.session.get('language') == 'ch')
+            alert('非法盤面，請重新輸入');
+        else if($.session.get('language') == 'en')
+            alert('Invalid board. Please check your input.');
+        else if($.session.get('language') == 'jp')
+            alert('無効な盤面です。 入力内容を確認してください。');
+    }
     if(colors == 2)
         solve2(count);
     else if(colors==3)
@@ -125,7 +131,12 @@ function solve2(count){
     ans[15] = new Array(0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1);
     
     if(ans[count1].length == 0){
-        alert('無解QAQ');
+        if($.session.get('language') == 'ch')
+            alert('無解QAQ');
+        else if($.session.get('language') == 'en')
+            alert('No solution LUL');
+        else if($.session.get('language') == 'jp')
+            alert('解決策なし');
     }
     else{
         // restore the ans to the input color
@@ -194,8 +205,14 @@ function solveMultiple(count){
     for(var i=0; i<6; i++)
         maxCombo += Math.floor(count[i]/3);
     
-    if(maxCombo < 7)
-        alert('無解QAQ');
+    if(maxCombo < 7){
+        if($.session.get('language') == 'ch')
+            alert('無解QAQ');
+        else if($.session.get('language') == 'en')
+            alert('No solution LUL');
+        else if($.session.get('language') == 'jp')
+            alert('解決策なし');
+    }
     else if(maxCombo == 7){
         // 7 combo : 5, 5, 5, 3, 3, 3, 3
         permutes = new Array();
@@ -339,7 +356,12 @@ var drawed = 0;
 function drawNext(){
     resetBoard();
     if(drawed >= answers.length){
-        alert('沒有其他解了，從第一個解法重新開始');
+        if($.session.get('language') == 'ch')
+            alert('沒有其他解了，從第一個解法重新開始');
+        else if($.session.get('language') == 'en')
+            alert('No other solution. Start from the first one.');
+        else if($.session.get('language') == 'jp')
+            alert('他の解決策はない、最初の解決策からやり直す');
         drawed = 0;
     }
     for(i=0; i<30; i++){
