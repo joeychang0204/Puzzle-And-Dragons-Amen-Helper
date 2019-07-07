@@ -68,7 +68,7 @@ html, body {
 .mdl-demo .mdl-card {
   height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .mdl-demo .mdl-card > * {
   height: auto;
@@ -111,6 +111,7 @@ html, body {
 .mdl-demo .mdl-layout__content section:not(:last-of-type) {
   position: relative;
   margin-bottom: 48px;
+  max-width: 620px;
 }
 .mdl-demo section.section--center {
   max-width: 860px;
@@ -214,13 +215,11 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
-
 .counter
 {
     background-color: #ffffff;
     text-align: center;
     width: 80px;
-    float: right;
 }
 .counter-count
 {
@@ -230,9 +229,9 @@ html, body {
     position: relative;
     color: #ffffff;
     text-align: center;
-    line-height: 50px;
-    width: 50px;
-    height: 50px;
+    line-height: 92px;
+    width: 80px;
+    height: 80px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -240,9 +239,4 @@ html, body {
     display: inline-block;
 }
 
-.view-p
-{
-    font-size: 16px;
-    color: #000000;
-    line-height: 34px;
-}
+input[type=number]{ width: 60px !important; }

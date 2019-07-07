@@ -340,7 +340,14 @@ function addDrop(type) {
     var img = document.createElement("img");
     var src = ['images/fire.png', 'images/water.png', 'images/wood.png', 'images/light.png', 'images/dark.png', 'images/health.png'];
     img.src = src[type];
-    img.width = 35;
+    // 41 should work for mobile
+    
+    
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+        img.width = 45;
+    else{
+        img.width = 58;
+    }
     document.getElementById("board").appendChild(img);
 }
 
@@ -348,11 +355,15 @@ function resetBoard() {
     document.getElementById("board").innerHTML = '';
     var img = document.createElement("img");
     img.src = 'images/screenshot.png';
-    img.width = 215;
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+        img.width = 270;
+    else
+        img.width = 350;
     document.getElementById("board").appendChild(img);
 }
 
 var drawed = 0;
+
 function drawNext(){
     resetBoard();
     if(drawed >= answers.length){
@@ -364,7 +375,7 @@ function drawNext(){
             alert('他の解決策はない、最初の解決策からやり直す');
         drawed = 0;
     }
-    for(i=0; i<30; i++){
+    for(var i=0; i<30; i++){
         addDrop(answers[drawed][i]);
     }
     drawed++;

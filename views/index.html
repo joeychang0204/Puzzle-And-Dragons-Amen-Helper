@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 
     <!-- Your styles -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -78,42 +78,67 @@
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="overview">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--grey mdl-color-text--white" id="board">
+              <div class="container">
+              <div class="row bg-white equal" >
+                  <div class="col-sm-6">
+            <div class="container" id="board" max-width="250""></div>
             </div>
-            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
-              <div class="mdl-card__supporting-text">
                   
                   
                   
-                  
+            <div class="col-sm-6">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4"></div>
+                            <div class="col-4">
                 <div class="counter">
                     <p class="counter-count" id="counter">0</p>
                     <p class="view-p" id="view-p">瀏覽人數</p>
-                </div>
-</br></br></br></br></br></br></br>
-                <form onsubmit="solve()">
-                    <img src="images/fire.png" width="35">
-                    <input type="number" name="fire_count" id="fire_count" min="0" max="30">
-                    <img src="images/water.png" width="35">
-                    <input type="number" name="water_count" id="water_count" min="0" max="30" >
-                    <img src="images/wood.png" width="35">
-                    <input type="number" name="wood_count" id="wood_count" min="0" max="30">
-                    <img src="images/light.png" width="35">
-                    <input type="number" name="light_count" id="light_count" min="0" max="30">
-                    <img src="images/dark.png" width="35">
-                    <input type="number" name="dark_count" id="dark_count" min="0" max="30">
-                    <img src="images/health.png" width="35">
-                    <input type="number" name="health_count" id="health_count" min="0" max="30" value=0></br></br>
-                    <div class="row">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary" value="開始計算" id="calculate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" class="btn btn-primary" onclick="drawNext();" value="顯示其他解法" style="float: center;" id="next">    
-                    </div>
-                  </br></br></br>
-                </form>
-                </br>
+                </div><div class="col-4"></div>
               </div>
             </div>
-
+                
+                </div>
+                <form onsubmit="solve()">
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                    <img src="images/fire.png" width="35">
+                    <input type="number" name="fire_count" id="fire_count" min="0" max="30" width="200">
+                    </div>
+                    <div class="col-4">
+                    <img src="images/water.png" width="35">
+                    <input type="number" name="water_count" id="water_count" min="0" max="30" width="200">
+                  </div>
+                  <div class="col-4">
+                    <img src="images/wood.png" width="35">
+                    <input type="number" name="wood_count" id="wood_count" min="0" max="30" width="200"></div>
+                    <div class="col-4">
+                    <img src="images/light.png" width="35">
+                    <input type="number" name="light_count" id="light_count" min="0" max="30" width="200"></div>
+                    <div class="col-4">
+                    <img src="images/dark.png" width="35">
+                    <input type="number" name="dark_count" id="dark_count" min="0" max="30" width="200"></div>
+                    <div class="col-4">
+                    <img src="images/health.png" width="35">
+                    <input type="number" name="health_count" id="health_count" min="0" max="30" width="200"> </div>
+                  </br></br></br>
+                    </div>
+                  </div>
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-4"></div>
+                              <div class="col-4">
+                    <input type="submit" class="btn btn-primary" value="開始計算" id="calculate"></br></br>
+                    <input type="button" class="btn btn-primary" onclick="drawNext();" value="其他解法" style="float: center;" id="next">
+                    </div>
+                  </div>
+                </div>
+                  </br></br></br></br></br></br></br></br></br></br></br></br></br></br>    
+                </form></div>
+              
+              </div>
+            </div>
           </section>
         </div>
         <div class="mdl-layout__tab-panel" id="features">
