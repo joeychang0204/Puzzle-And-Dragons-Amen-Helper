@@ -220,6 +220,9 @@ html, body {
     background-color: #ffffff;
     text-align: center;
     width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .counter-count
 {
@@ -240,3 +243,5 @@ html, body {
 }
 
 input[type=number]{ width: 60px !important; }
+input[type=submit]{  margin-left: auto;margin-right: auto; display: block;}
+input[type=button]{  margin-left: auto;margin-right: auto; display: block;}
