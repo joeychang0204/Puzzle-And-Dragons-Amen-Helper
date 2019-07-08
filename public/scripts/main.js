@@ -213,11 +213,10 @@ function solve3(count){
         if(valid)
             answers.push(curAns);
     }
-    // if no answer, try solving this using multi color
-    if(answers.length == 0){
-        console.log('no answer using basic tri-color sol, try general solution')
+    // if no answer, try solving this board using general solution
+    if(answers.length == 0)
         solveMultiple(count);
-    }
+
 }
 
 function solveMultiple(count){
@@ -273,7 +272,6 @@ function solveMultiple(count){
         
     }
     else if(maxCombo == 8){
-        console.log('8 combo');
         
         // 8 combo : 6,4,4,4,3,3,3
         permutes = new Array();
@@ -423,31 +421,38 @@ function setCount() {
     array.forEach(item => document.getElementById(item).value = getUrlParam(item, 0));
 }
 
-function addDrop(type) {
+function drawOrbs(board) {
     // add new drop inside board
-    var img = document.createElement("img");
     var src = ['images/fire.png', 'images/water.png', 'images/wood.png', 'images/light.png', 'images/dark.png', 'images/health.png', 'images/poison.png', 'images/sPoison.png', 'images/jiama.png', 'images/bomb.png'];
-    img.src = src[type];
-    // 41 should work for mobile
-    
-    
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
-        img.width = 45;
-    else{
-        img.width = 58;
+    for(var i=0; i<30; i++){
+        var type = board[i];
+        var img = document.createElement("img");
+        img.src = src[type];
+        // 41 should work for mobile
+        
+        
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+            img.width = 45;
+        else{
+            img.width = 60;
+        }
+        var cur_slot = 'slot' + i.toString();
+        document.getElementById(cur_slot).appendChild(img);
     }
-    document.getElementById("board").appendChild(img);
 }
 
 function resetBoard() {
-    document.getElementById("board").innerHTML = '';
-    var img = document.createElement("img");
-    img.src = 'images/screenshot.png';
+    /*
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
-        img.width = 270;
+        document.getElementById('screenshot').width = 270;
     else
-        img.width = 350;
-    document.getElementById("board").appendChild(img);
+        document.getElementById('screenshot').width = 350;
+    */
+
+    for(var i=0; i<30; i++){
+        var cur_slot = 'slot' + i.toString();
+        document.getElementById(cur_slot).innerHTML='';
+    }
 }
 
 var drawed = 0;
@@ -463,9 +468,12 @@ function drawNext(){
             alert('他の解決策はない、最初の解決策からやり直す');
         drawed = 0;
     }
+    /*
     for(var i=0; i<30; i++){
         addDrop(answers[drawed][i]);
     }
+    */
+    drawOrbs(answers[drawed]);
     drawed++;
 }
 
