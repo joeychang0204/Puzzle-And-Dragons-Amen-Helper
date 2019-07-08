@@ -249,3 +249,10 @@ input[type=button]{  margin-left: auto;margin-right: auto; display: block;}
 br {
   display: block !important;
 }
+
+img#screenshot
+{
+    width: 100% !important; /* or any custom size */
+    height: auto !important;
+    object-fit: contain !important;
+}
