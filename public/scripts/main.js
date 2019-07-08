@@ -442,12 +442,12 @@ function drawOrbs(board) {
 }
 
 function resetBoard() {
-    /*
+    
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
         document.getElementById('screenshot').width = 270;
     else
-        document.getElementById('screenshot').width = 350;
-    */
+        document.getElementById('screenshot').width = 400;
+    
 
     for(var i=0; i<30; i++){
         var cur_slot = 'slot' + i.toString();
