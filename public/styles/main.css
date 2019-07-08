@@ -253,5 +253,4 @@ br {
 img#screenshot
 {
     width: 100% !important; /* or any custom size */
-    height: auto !important;
 }
