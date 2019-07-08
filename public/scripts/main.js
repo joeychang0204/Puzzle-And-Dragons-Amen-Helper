@@ -574,14 +574,16 @@ $(document).ready(function() {
 function setLanguage(lan){
     if(lan == 'undefined'){
         var naviLan = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-        console.log(naviLan);
+        // alert(naviLan);
+        if(naviLan.includes('ja') || naviLan.includes('jp'))
+            lan = 'jp';
+        else if(naviLan.includes('zh') || naviLan.includes('ch'))
+            lan = 'ch';
+        else
+            lan = 'en';
     }
-    if(lan.includes('ja') || lan.includes('jp'))
-        lan = 'jp';
-    else if(lan.includes('zh') || lan.includes('ch'))
-        lan = 'ch';
-    else
-        lan = 'en';
+    // alert(lan);
+    
     $.session.set('language', lan);
     changeByHtml.forEach(item => document.getElementById(item).innerHTML = languagePack[item][lan]);
     changeByVal.forEach(item => document.getElementById(item).value = languagePack[item][lan]);
