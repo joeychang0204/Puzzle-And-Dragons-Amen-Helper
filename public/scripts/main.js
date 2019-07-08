@@ -216,6 +216,35 @@ function solve3(count){
     // if no answer, try solving this board using general solution
     if(answers.length == 0)
         solveMultiple(count);
+    
+    // deal with very bad corner cases
+    if(answers.length == 0){
+        // assign the count and colors
+        var count0 = Math.max(...count);
+        var count1 = -1, count2 = -1;
+        var c0 = -1, c1 = -1, c2 = -1;
+        for(var i = 0; i < count.length; i++){
+            if(count[i] == count0)
+                c0 = i;
+            else if(count[i] != 0)
+                count1 == -1 ? count1 = count[i] : count2 = count[i];
+        }
+        // make sure count1 is less than count2
+        if(count1 > count2)
+            [count1, count2] = [count2, count1];
+        c1 = count.indexOf(count1), c2 = count.indexOf(count2);
+        // 19, 6, 5 / 20, 5, 5 / 20, 7, 3 / 21, 6, 3 / 22, 5, 3
+        if(count0 == 19 && count1 == 5)
+            answers.push([c0,c0,c1,c0,c0,c0,c0,c0,c1,c0,c0,c0,c0,c0,c0,c1,c1,c1,c2,c2,c2,c0,c0,c0,c0,c0,c0,c2,c2,c2]);
+        else if(count0 == 20 && count1 == 5)
+            answers.push([c0,c0,c0,c0,c0,c0,c0,c0,c0,c2,c2,c2,c2,c2,c2,c0,c0,c0,c0,c0,c0,c1,c1,c1,c0,c0,c1,c0,c0,c0]);
+        else if(count0 == 20 && count1 == 3)
+            answers.push([c0,c0,c0,c2,c0,c0,c2,c2,c2,c0,c0,c0,c0,c0,c0,c2,c2,c2,c1,c1,c1,c0,c0,c0,c0,c0,c0,c0,c0,c0]);
+        else if(count0 == 21 && count1 == 3)
+            answers.push([c0,c0,c0,c1,c0,c0,c2,c2,c2,c0,c0,c0,c0,c0,c0,c1,c0,c0,c2,c2,c2,c0,c0,c0,c0,c0,c0,c1,c0,c0])
+        else if(count0 == 22 && count1 == 3)
+            answers.push([c0,c0,c2,c0,c0,c0,c0,c0,c2,c0,c0,c1,c0,c2,c0,c1,c1,c0,c2,c0,c0,c0,c0,c0,c0,c0,c2,c0,c0,c0])
+    }
 
 }
 
