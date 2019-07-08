@@ -77,14 +77,14 @@
 })();
 
 function solve() {
-    const array = ['fire_count', 'water_count', 'wood_count', 'light_count', 'dark_count', 'health_count'];
+    const array = ['fire_count', 'water_count', 'wood_count', 'light_count', 'dark_count', 'health_count', 'poison_count', 'sPoison_count', 'jiama_count', 'bomb_count'];
     var count = [];
     array.forEach(item => count.push(parseInt(document.getElementById(item).value)));
-    var colors = 6;
+    var colors = 0;
     var total = 0;
-    for(var i = 0; i<6; i++){
+    for(var i = 0; i < array.length; i++){
         total += count[i];
-        if (count[i] == 0) colors -= 1;
+        if (count[i] != 0) colors += 1;
     }
     if(total > 0 && total != 30){
         if($.session.get('language') == 'ch')
@@ -214,7 +214,7 @@ function solve3(count){
 
 function solveMultiple(count){
     var maxCombo = 0;
-    for(var i=0; i<6; i++)
+    for(var i = 0; i < count.length; i++)
         maxCombo += Math.floor(count[i]/3);
     
     if(maxCombo < 7){
@@ -276,6 +276,8 @@ function solveMultiple(count){
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6], c7 = permutes[i][7], c8=permutes[i][8], c9=permutes[i][9];
             // ignore boring permutations
+            if(!checkBomb(permutes[i]))
+                continue;
             if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c2,c3,c4,c5,c6,c7,c2,c3,c4,c5,c6,c8,c2,c3,c4,c5,c6,c9,c2,c1,c1,c1,c1,c1,c0,c0,c0,c0,c0,c0]);
         }
@@ -297,6 +299,8 @@ function solveMultiple(count){
         pickColor(count, [6,6,6,3,3,3,3], [[0,1], [1,2], [1,3], [1,4], [1,5], [1,6], [2,3], [3,4], [4,5], [5,6]]);
         for(var i=0; i<permutes.length; i++){
             var c0=permutes[i][0], c1 = permutes[i][1],c2 = permutes[i][2],c3 = permutes[i][3],c4 = permutes[i][4],c5 = permutes[i][5],c6 = permutes[i][6];
+            if(!checkBomb(permutes[i]))
+                continue;
             // ignore boring permutations
             if(i==0 || (i>0 && !skipPermute(i, [0,1])))
                 answers.push([c2,c2,c3,c4,c5,c6,c2,c2,c3,c4,c5,c6,c2,c2,c3,c4,c5,c6,c1,c1,c1,c1,c1,c1,c0,c0,c0,c0,c0,c0]);
@@ -356,14 +360,14 @@ function getUrlVars() {
 
 function setCount() {
     // set the count using URL variables
-    const array = ['fire_count', 'water_count', 'wood_count', 'light_count', 'dark_count', 'health_count'];
+    const array = ['fire_count', 'water_count', 'wood_count', 'light_count', 'dark_count', 'health_count', 'poison_count', 'sPoison_count', 'jiama_count', 'bomb_count'];
     array.forEach(item => document.getElementById(item).value = getUrlParam(item, 0));
 }
 
 function addDrop(type) {
     // add new drop inside board
     var img = document.createElement("img");
-    var src = ['images/fire.png', 'images/water.png', 'images/wood.png', 'images/light.png', 'images/dark.png', 'images/health.png'];
+    var src = ['images/fire.png', 'images/water.png', 'images/wood.png', 'images/light.png', 'images/dark.png', 'images/health.png', 'images/poison.png', 'images/sPoison.png', 'images/jiama.png', 'images/bomb.png'];
     img.src = src[type];
     // 41 should work for mobile
     
@@ -413,6 +417,20 @@ function skipPermute(i, toCheck){
             skip = false;
     }
     return skip;
+}
+
+function checkBomb(permute){
+    var valid = true;
+    var bombCombo = 0;
+    for(var i = 0; i < permute.length; i++){
+        // if bomb in remain : invalid
+        if(i >= 7 && permute[i] == 9)
+            valid = false;
+        if(permute[i] == 9)
+            bombCombo++;
+    }
+    // bomb cannot appear in two different combos
+    return valid && bombCombo < 2;
 }
 
 var changeByHtml = ['title', 'main', 'references', 'view-p', 'twoColor-h', 'threeColor-h', 'multiColor-h', 'contact-h', 'website-h','threeColor-r', 'multiColor-r','threeColor-p','multiColor-p','website-r1','website-r2','website-r3','contact-p1'];

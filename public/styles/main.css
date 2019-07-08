@@ -245,3 +245,7 @@ html, body {
 input[type=number]{ width: 60px !important; }
 input[type=submit]{  margin-left: auto;margin-right: auto; display: block;}
 input[type=button]{  margin-left: auto;margin-right: auto; display: block;}
+
+br {
+  display: block !important;
+}

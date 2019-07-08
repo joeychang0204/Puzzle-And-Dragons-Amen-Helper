@@ -87,42 +87,90 @@
                   
                   
             <div class="col-sm-6">
-                
+              </br></br>
                 <form>
                   <div class="container">
                     <div class="row">
+                      <div class="col-2">
+                        <img src="images/fire.png" width="35">
+                      </div>
+                      <div class="col-2">
+                        <img src="images/water.png" width="35">
+                      </div>
+                      <div class="col-2">
+                        <img src="images/wood.png" width="35">
+                      </div>
+                      <div class="col-2">
+                        <img src="images/light.png" width="35">
+                      </div>
+                      <div class="col-4">
+                        <img src="images/dark.png" width="35">
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                          <input type="number" name="fire_count" id="fire_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-2">
+                          <input type="number" name="water_count" id="water_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-2">
+                          <input type="number" name="wood_count" id="wood_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-2">
+                          <input type="number" name="light_count" id="light_count" min="0" max="30" width="200">
+                        </div>
                         <div class="col-4">
-                    <img src="images/fire.png" width="35">
-                    <input type="number" name="fire_count" id="fire_count" min="0" max="30" width="200">
+                          <input type="number" name="dark_count" id="dark_count" min="0" max="30" width="200">
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-2">
+                        <img src="images/health.png" width="35">
+                      </div>
+                      <div class="col-2">
+                        <img src="images/poison.png" width="35">
+                      </div>
+                      <div class="col-2">
+                        <img src="images/sPoison.png" width="35">
+                      </div>
+                      <div class="col-2">
+                        <img src="images/jiama.png" width="35">
+                      </div>
+                      <div class="col-4">
+                        <img src="images/bomb.png" width="35">
+                      </div>
                     </div>
-                    <div class="col-4">
-                    <img src="images/water.png" width="35">
-                    <input type="number" name="water_count" id="water_count" min="0" max="30" width="200">
-                  </div>
-                  <div class="col-4">
-                    <img src="images/wood.png" width="35">
-                    <input type="number" name="wood_count" id="wood_count" min="0" max="30" width="200"></div>
-                    <div class="col-4">
-                    <img src="images/light.png" width="35">
-                    <input type="number" name="light_count" id="light_count" min="0" max="30" width="200"></div>
-                    <div class="col-4">
-                    <img src="images/dark.png" width="35">
-                    <input type="number" name="dark_count" id="dark_count" min="0" max="30" width="200"></div>
-                    <div class="col-4">
-                    <img src="images/health.png" width="35">
-                    <input type="number" name="health_count" id="health_count" min="0" max="30" width="200"> </div>
+                    <div class="row">
+                        <div class="col-2">
+                          <input type="number" name="health_count" id="health_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-2">
+                          <input type="number" name="poison_count" id="poison_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-2">
+                          <input type="number" name="sPoison_count" id="sPoison_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-2">
+                          <input type="number" name="jiama_count" id="jiama_count" min="0" max="30" width="200">
+                        </div>
+                        <div class="col-4">
+                          <input type="number" name="bomb_count" id="bomb_count" min="0" max="30" width="200">
+                        </div>
+                      </div>
                   </br></br></br>
-                    </div>
                   </div>
                   <div class="container">
                       <div class="row">
-                          <div class="col-4"></div>
-                              <div class="col-4">
-                    <input type="submit" class="btn btn-primary" value="開始計算" id="calculate"></br></br>
-                    <input type="button" class="btn btn-primary" onclick="drawNext();" value="其他解法" style="float: center;" id="next">
-                    </div>
+                          <div class="col-6">
+                            <input type="submit" class="btn btn-primary" value="開始計算" id="calculate">
+                          </div>
+                          <div class="col-3">
+                            <input type="button" class="btn btn-primary" onclick="drawNext();" value="其他解法" style="float: center;" id="next">
+                          </div>
+                      </div>
                   </div>
-                </div>
+
               </br></br></br></br>
                 </form>
                 <div class="container">
