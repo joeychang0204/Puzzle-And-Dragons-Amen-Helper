@@ -567,7 +567,7 @@ function checkBomb(permute, remain){
     return valid && bombCombo < 2;
 }
 
-var changeByHtml = ['title', 'main', 'references', 'view-p', 'twoColor-h', 'threeColor-h', 'multiColor-h', 'contact-h', 'website-h','threeColor-r', 'multiColor-r','threeColor-p','multiColor-p','website-r1','website-r2','website-r3','contact-p1'];
+var changeByHtml = ['title', 'main', 'references', 'view-p', 'twoColor-h', 'threeColor-h', 'multiColor-h', 'contact-h', 'website-h','twoColor-r','threeColor-r', 'multiColor-r','threeColor-p','multiColor-p','website-r1','website-r2','website-r3','contact-p1', '7C-p', '8C-p', '9C-p', '10C-p'];
 var changeByVal = ['calculate', 'next'];
 var languagePack = {
     'title':{'ch':'龍族拼圖 阿門小幫手', 'en':'Puzzle & Dragons Amen Helper', 'jp':'パズドラ アメン助手'},
@@ -581,14 +581,19 @@ var languagePack = {
     'threeColor-h':{'ch':'三色', 'en':'Three Colors', 'jp':'3色陣'},
     'multiColor-h':{'ch':'多色', 'en':'More Colors', 'jp':'多色'},
     'website-h':{'ch':'其他參考資料', 'en':'Other References', 'jp':'その他の参考資料'},
-    'threeColor-r':{'ch':'參考連結', 'en': 'Reference', 'jp':'参考リンク'},
-    'multiColor-r':{'ch':'參考連結', 'en': 'Reference', 'jp':'参考リンク'},
+    'twoColor-r':{'ch':'參考連結:', 'en': 'Reference:', 'jp':'参考リンク:'},
+    'threeColor-r':{'ch':'參考連結:', 'en': 'Reference:', 'jp':'参考リンク:'},
+    'multiColor-r':{'ch':'參考連結:', 'en': 'Reference:', 'jp':'参考リンク:'},
     'threeColor-p':{'ch':'先轉下兩排4 combo， 轉一橫排蓋住，再做剩下2 combo。', 'en':'First make four combos at the bottom. Cover them by a row. Finally make two combos at the top.', 'jp':'最初に2色を選び、下2段を組んで、上の3段を3コンボ。'},
     'multiColor-p':{'ch':'先算出最大combo數，根據結果對應不同轉法。', 'en':'First calculate the maximum possible combos. And then solve the puzzle accordingly.', 'jp':'盤面最大コンボ数を数える、そしてドロップを配置する。'},
     'website-r1':{'ch':'網頁模版', 'en':'Website\'s Template', 'jp':'Webテンプレート'},
     'website-r2':{'ch':'jQuery Session', 'en':'jQuery Session', 'jp':'jQuery セッション'},
     'website-r3':{'ch':'人氣計數器', 'en':'Hits Counter', 'jp':'訪問回数カウンター'},
-    'contact-p1':{'ch':'email: joeychang0204@gmail.com</br>github: https://github.com/joeychang0204/Puzzle-And-Dragons-Amen-Helper', 'en':'email: joeychang0204@gmail.com</br>github: https://github.com/joeychang0204/Puzzle-And-Dragons-Amen-Helper', 'jp':'メイル: joeychang0204@gmail.com</br>github: https://github.com/joeychang0204/Puzzle-And-Dragons-Amen-Helper'}
+    'contact-p1':{'ch':'email: joeychang0204@gmail.com</br>github: https://github.com/joeychang0204/Puzzle-And-Dragons-Amen-Helper</br>twitter: https://twitter.com/joeychang0204/status/1149024605182537730', 'en':'email: joeychang0204@gmail.com</br>github: https://github.com/joeychang0204/Puzzle-And-Dragons-Amen-Helper</br>twitter: https://twitter.com/joeychang0204/status/1149024605182537730', 'jp':'メイル: joeychang0204@gmail.com</br>github: https://github.com/joeychang0204/Puzzle-And-Dragons-Amen-Helper</br>ツイッター: https://twitter.com/joeychang0204/status/1149024605182537730'},
+    '7C-p':{'ch':'7 Combo: ', 'en':'7 Combo: ', 'jp': '7コンボ: '},
+    '8C-p':{'ch':'8 Combo: ', 'en':'8 Combo: ', 'jp': '8コンボ: '},
+    '9C-p':{'ch':'9 Combo: ', 'en':'9 Combo: ', 'jp': '9コンボ: '},
+    '10C-p':{'ch':'10 Combo: ', 'en':'10 Combo: ', 'jp': '10コンボ: '}
     //'':{'ch':'', 'en':'', 'jp':''},
 }
 
