@@ -470,6 +470,18 @@ function getUrlVars() {
 function setCount() {
     // set the count using URL variables
     const array = ['fire_count', 'water_count', 'wood_count', 'light_count', 'dark_count', 'health_count', 'poison_count', 'sPoison_count', 'jiama_count', 'bomb_count'];
+    // check if there's weird stuff in url
+    for(var i = 0; i < array.length; i++){
+        if(getUrlParam(array[i], 0).length > 2){
+            if($.session.get('language') == 'ch')
+                alert('請不要玩URL QQ');
+            else if($.session.get('language') == 'jp')
+                alert('URLを変換しないでください');
+            else
+                alert('Please do not play with URL QQ');
+            return;
+        }
+    }
     array.forEach(item => document.getElementById(item).value = getUrlParam(item, 0));
 }
 
@@ -597,7 +609,7 @@ $(document).ready(function() {
 function setLanguage(lan){
     if(lan == 'undefined'){
         var naviLan = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
-        // alert(naviLan);
+        //alert(naviLan);
         if(naviLan.includes('ja') || naviLan.includes('jp'))
             lan = 'jp';
         else if(naviLan.includes('zh') || naviLan.includes('ch'))
@@ -605,7 +617,7 @@ function setLanguage(lan){
         else
             lan = 'en';
     }
-    // alert(lan);
+    //alert(lan);
     
     $.session.set('language', lan);
     changeByHtml.forEach(item => document.getElementById(item).innerHTML = languagePack[item][lan]);
