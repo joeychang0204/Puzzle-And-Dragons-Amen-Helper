@@ -513,8 +513,9 @@ function resetBoard() {
     else
         document.getElementById('screenshot').width = 400;
     */
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
-        document.getElementById('screenshot').height = document.getElementById('screenshot').width * 1.107;
+   // no more screenshot BabyRage
+    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) 
+        //document.getElementById('screenshot').height = document.getElementById('screenshot').width * 1.107;
 
     for(var i=0; i<30; i++){
         var cur_slot = 'slot' + i.toString();
