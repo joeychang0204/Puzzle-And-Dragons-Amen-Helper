@@ -156,7 +156,7 @@ function solve2(count){
         else if($.session.get('language') == 'en')
             alert('No solution LUL');
         else if($.session.get('language') == 'jp')
-            alert('解決策なし');
+            alert('ドロップ配置なし');
     }
     else{
         // restore the ans to the input color
@@ -282,7 +282,7 @@ function solveMultiple(count){
         else if($.session.get('language') == 'en')
             alert('No solution LUL');
         else if($.session.get('language') == 'jp')
-            alert('解決策なし');
+            alert('ドロップ配置なし');
     }
     else if(maxCombo == 7){
         // 7 combo : 5, 5, 5, 3, 3, 3, 3
@@ -533,7 +533,7 @@ function drawNext(){
         else if($.session.get('language') == 'en')
             alert('No other solution. Start from the first one.');
         else if($.session.get('language') == 'jp')
-            alert('他の解決策はない、最初の解決策からやり直す');
+            alert('他のドロップ配置はない、最初の配置からやり直す');
         drawed = 0;
     }
     /*
